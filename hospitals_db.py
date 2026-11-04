@@ -4,7 +4,7 @@ import json
 HOSPITALS_DATABASE = [
     {
         "hospital_id": "H-01",
-        "name": "EPH Tébessa (مستشفى الدكتور بوقرة - تبسة)",
+        "name": "EPH Tébessa (مستشفى العالية صالح - تبسة)",
         "city": "Tébessa",
         "departments": {
             "Emergency": {"available_beds": 8, "status": "Active"},

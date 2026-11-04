@@ -6,7 +6,7 @@ def calculate_NEWS2(
     oxygen_saturation: int, 
     temperature: float, 
     systolic_bp: int, 
-    respiratory_rate: int,  # معدل التنفس أساسي ولا غنى عنه
+    respiratory_rate: int,  # معدل التنفس 
     consciousness: str      # مستوى الوعي (A : awar, V : Voice, P :Pain, U: Unresponsive)
 ) -> str: 
     
@@ -92,7 +92,6 @@ def calculate_NEWS2(
 # /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////:
 
 
-    # استيراد مكتبة os للتحقق من وجود الملفات في النظام
 
 def load_and_validate_hospitals(file_path: str) -> list:
     """
