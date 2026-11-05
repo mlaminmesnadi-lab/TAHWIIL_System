@@ -6,9 +6,10 @@ HOSPITALS_DATABASE = [
         "hospital_id": "H-01",
         "name": "EPH Tébessa (مستشفى العالية صالح - تبسة)",
         "city": "Tébessa",
+        "transfer_time_minutes" : 30 ,
         "departments": {
             "Emergency": {"available_beds": 8, "status": "Active"},
-            "ICU": {"available_beds": 1, "status": "Limited"},  # أسرّة عناية مركزة محدودة جداً
+            "ICU": {"available_beds": 0, "status": "Limited"},  # أسرّة عناية مركزة محدودة جداً
             "Cardiology": {"available_beds": 4, "status": "Active"}
         }
     },
@@ -16,6 +17,7 @@ HOSPITALS_DATABASE = [
         "hospital_id": "H-02",
         "name": "CHU Annaba (المركز الاستشفائي الجامعي - عنابة)",
         "city": "Annaba",
+        "transfer_time_minutes" : 120 ,
         "departments": {
             "Emergency": {"available_beds": 20, "status": "Active"},
             "ICU": {"available_beds": 5, "status": "Active"},    # قدرة أكبر على استقبال الحالات الحرجة

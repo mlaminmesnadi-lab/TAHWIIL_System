@@ -195,3 +195,46 @@ def select_best_hospital(required_specialty: str, hospitals_data: list) -> str:
         "transfer_time_minutes": best_match["transfer_time_minutes"],
         "updated_at": best_match["updated_at"]
     }, ensure_ascii=False)  # لضمان بقاء الحروف والأصوات العربية واضحة دون أي تشفير
+
+#:::::::::::::::::: دالة محاكاة الطريقة التقليدية لنقل المرضى :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
+# نفرض ان كل مكالمة لمستشفى تستغرق 2 دقائق :
+
+def simulate_baseline_phone_polling(hospitals_data: list, required_specialty: str) -> dict:
+    """
+    Task 5: Sequential Telephone Call Simulation (Baseline)
+    Assumption: Each telephone call to a hospital takes 2 minutes (for inquiry and response).
+    The process proceeds sequentially until the first hospital meeting the criteria is found, and the total time is calculated.
+    """
+    CALL_TIME_PER_HOSPITAL = 2  # دقيقتان لكل مكالمة (مستندة إلى افتراض إداري)
+    total_calls_time = 0
+    hospitals_checked = 0
+    
+    for hospital in hospitals_data:
+        hospitals_checked += 1
+        total_calls_time += CALL_TIME_PER_HOSPITAL
+        
+        departments = hospital.get("departments", {})
+        if required_specialty in departments:
+            available_beds = departments[required_specialty].get("available_beds", 0)
+            if available_beds > 0:
+                # وجدنا أول مستشفى متاح عبر الاتصال التتابعي
+                transfer_time = hospital["transfer_time_minutes"]
+                total_baseline_time = total_calls_time + transfer_time
+                
+                return {
+                    "status": "Success",
+                    "baseline_hospital": hospital["name"],
+                    "hospitals_checked": hospitals_checked,
+                    "phone_calls_time_minutes": total_calls_time,
+                    "transfer_time_minutes": transfer_time,
+                    "total_baseline_time_minutes": total_baseline_time,
+                    "assumption": "2 minutes per phone call"
+                }
+                
+    # إذا انتهت القائمة ولم يتم العثور على شيء
+    return {
+        "status": "Not Found",
+        "hospitals_checked": hospitals_checked,
+        "total_baseline_time_minutes": total_calls_time,
+        "assumption": "2 minutes per phone call"
+    }
