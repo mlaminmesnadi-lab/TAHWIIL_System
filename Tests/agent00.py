@@ -59,7 +59,7 @@ def run_true_tahwil_agent(patient_data: dict, HOSPITALS_DATABASE: list) -> str:
                 if not function_args.get('required_specialty'):
                     function_args['required_specialty'] = required_specialty
                 if 'hospitals_data' not in function_args or not function_args['HOSPITALS_DATABASE']:
-                    function_args['HOSPITALS_DATABASE'] = hospitals_database
+                    function_args['HOSPITALS_DATABASE'] = HOSPITALS_DATABASE
                 
                 tool_result = select_best_hospital(**function_args)
             
