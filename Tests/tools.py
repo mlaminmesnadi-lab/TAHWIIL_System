@@ -1,4 +1,4 @@
-calculate_news2_tool_def = {
+calculate_NEWS2 = {
     'type': 'function',
     'function': {
         'name': 'calculate_NEWS2',
@@ -44,7 +44,7 @@ calculate_news2_tool_def = {
 }
 
 
-load_hospitals_tool_def = {
+load_and_validate_hospitals = {
     'type': 'function',
     'function': {
         'name': 'load_and_validate_hospitals',
@@ -63,7 +63,7 @@ load_hospitals_tool_def = {
 }
 
 
-select_best_hospital_tool_def = {
+select_best_hospital = {
     'type': 'function',
     'function': {
         'name': 'select_best_hospital',
@@ -89,7 +89,7 @@ select_best_hospital_tool_def = {
 }
 
 
-simulate_phone_polling_tool_def = {
+simulate_baseline_phone_polling = {
     'type': 'function',
     'function': {
         'name': 'simulate_baseline_phone_polling',
@@ -113,3 +113,11 @@ simulate_phone_polling_tool_def = {
         },
     },
 }
+
+# تعريف قائمة المخططات الشاملة لجميع الأدوات لاستخدامها مباشرة في وكيل Ollama
+tools_definitions = [
+    calculate_NEWS2,
+    load_and_validate_hospitals,
+    select_best_hospital,
+    simulate_baseline_phone_polling
+]
